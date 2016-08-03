@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<labels>
+  <label name="UTF-8 test">
+    <code>
+      ^XA
+      ^LH20,20
+      ^FX UTF-8 font selection: in printer E memory
+      ^CWT,E:TT0003M_.FNT
+      ^CFT,30,30
+      ^CI28
+      ^FX UTF8STR
+      ^FT0,100^FH^FDUTF8CODE^FS
+      ^XZ
+    </code>
+  </label>
+  <label name="">
+    <code>
+    </code>
+  </label>
+</labels>
