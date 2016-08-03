@@ -24,6 +24,7 @@ Public Class Form1
 
         res = ZebraPrint.SendStringToPrinter(strPrinter, strPrintText)
 
+
     End Sub
 
     Private Sub ButtonPrint_Click(sender As Object, e As EventArgs) Handles ButtonPrint.Click

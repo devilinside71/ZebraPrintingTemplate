@@ -119,8 +119,14 @@ Public Class ZebraPrint
         Return bSuccess
     End Function ' SendFileToPrinter()
 
-    ' When the function is given a string and a printer name,
-    ' the function sends the string to the printer as raw bytes.
+
+    ''' <summary>
+    ''' When the function is given a string and a printer name,
+    ''' the function sends the string to the printer as raw bytes.
+    ''' </summary>
+    ''' <param name="szPrinterName">Printer's Windows name</param>
+    ''' <param name="szString">String to print (i.e. ZPL code)</param>
+    ''' <returns></returns>
     Public Shared Function SendStringToPrinter(ByVal szPrinterName As String, ByVal szString As String)
         Dim pBytes As IntPtr
         Dim dwCount As Int32
@@ -137,19 +143,30 @@ Public Class ZebraPrint
         Return szString
     End Function
 
-    'Change system keyboard to English
+
+    ''' <summary>
+    ''' Change system keyboard to English
+    ''' </summary>
     Public Shared Sub ChangeToEnKey()
         Dim TypeOfLanguage = New System.Globalization.CultureInfo("en") ' or "fa-IR" for Farsi(Iran) 
         InputLanguage.CurrentInputLanguage = InputLanguage.FromCulture(TypeOfLanguage)
     End Sub
 
-    'Change system keyboard to Hungarian
+
+    ''' <summary>
+    ''' Change system keyboard to Hungarian
+    ''' </summary>
     Public Shared Sub ChangeToHuKey()
         Dim TypeOfLanguage = New System.Globalization.CultureInfo("hu") ' or "fa-IR" for Farsi(Iran) 
         InputLanguage.CurrentInputLanguage = InputLanguage.FromCulture(TypeOfLanguage)
     End Sub
 
-    'Convert non ASCII characters to ZPL _XX_XX format
+    ''' <summary>
+    ''' Converts UTF8 text to ZPL compatible string (_XX_XX format)
+    ''' System.Web should be added to references manually
+    ''' </summary>
+    ''' <param name="utf8text">Input text</param>
+    ''' <returns>ZPL compatible string</returns>
     Public Shared Function GetZPLutf8Code(utf8text As String) As String
         Dim result As String
         result = vbNullString
@@ -162,8 +179,18 @@ Public Class ZebraPrint
         Next
         Return result
     End Function
+    ''' <summary>
+    ''' Printers' human readable names
+    ''' </summary>
     Public Shared PrinterNames As List(Of String) = New List(Of String)
+    ''' <summary>
+    ''' Printers' Windows names
+    ''' </summary>
     Public Shared PrinterWinNames As List(Of String) = New List(Of String)
+    ''' <summary>
+    ''' Load printer definitions
+    ''' </summary>
+    ''' <param name="printers_filename">Printer definition filename</param>
     Public Shared Sub LoadPrinters(Optional printers_filename As String = "Printers.xml")
         Dim m_xmlr As XmlTextReader
         'Create the XML Reader
@@ -192,8 +219,18 @@ Public Class ZebraPrint
         'close the reader
         m_xmlr.Close()
     End Sub
+    ''' <summary>
+    ''' Labels' name, short description
+    ''' </summary>
     Public Shared LabelNames As List(Of String) = New List(Of String)
+    ''' <summary>
+    ''' Labels' ZPL codes with variables
+    ''' </summary>
     Public Shared LabelCodes As List(Of String) = New List(Of String)
+    ''' <summary>
+    ''' Load label templates
+    ''' </summary>
+    ''' <param name="labels_filename">Label template filename</param>
     Public Shared Sub LoadLabels(Optional labels_filename As String = "Labels.xml")
         Dim m_xmlr As XmlTextReader
         'Create the XML Reader
