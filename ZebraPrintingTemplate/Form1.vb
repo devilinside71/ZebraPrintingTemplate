@@ -9,18 +9,23 @@ Public Class Form1
         ComboBoxPrinter.SelectedIndex = 0
         Call ZebraPrint.LoadLabels()
     End Sub
-    Sub ZPLPrint()
+    ''' <summary>
+    ''' Prints label.
+    ''' Replaces variables with parameters
+    ''' </summary>
+    ''' <param name="replacement_text">replacement of variables</param>
+    Sub ZPLPrint(replacement_text As String)
         Dim strPrinter As String
         Dim strPrintText As String
         Dim res As String
 
-        Dim strTestText = "Almásrétes"
+
 
         strPrinter = ZebraPrint.PrinterWinNames(ComboBoxPrinter.SelectedIndex)
 
         strPrintText = ZebraPrint.LabelCodes(0)
-        strPrintText = strPrintText.Replace("UTF8STR", strTestText)
-        strPrintText = strPrintText.Replace("UTF8CODE", ZebraPrint.GetZPLutf8Code(strTestText))
+        strPrintText = strPrintText.Replace("UTF8STR", replacement_text)
+        strPrintText = strPrintText.Replace("UTF8CODE", ZebraPrint.GetZPLutf8Code(replacement_text))
 
         res = ZebraPrint.SendStringToPrinter(strPrinter, strPrintText)
 
@@ -28,6 +33,6 @@ Public Class Form1
     End Sub
 
     Private Sub ButtonPrint_Click(sender As Object, e As EventArgs) Handles ButtonPrint.Click
-        Call ZPLPrint()
+        Call ZPLPrint("Almásrétes")
     End Sub
 End Class

@@ -148,7 +148,7 @@ Public Class ZebraPrint
     ''' Change system keyboard to English
     ''' </summary>
     Public Shared Sub ChangeToEnKey()
-        Dim TypeOfLanguage = New System.Globalization.CultureInfo("en") ' or "fa-IR" for Farsi(Iran) 
+        Dim TypeOfLanguage = New System.Globalization.CultureInfo("en-EN") ' or "fa-IR" for Farsi(Iran) 
         InputLanguage.CurrentInputLanguage = InputLanguage.FromCulture(TypeOfLanguage)
     End Sub
 
@@ -157,7 +157,7 @@ Public Class ZebraPrint
     ''' Change system keyboard to Hungarian
     ''' </summary>
     Public Shared Sub ChangeToHuKey()
-        Dim TypeOfLanguage = New System.Globalization.CultureInfo("hu") ' or "fa-IR" for Farsi(Iran) 
+        Dim TypeOfLanguage = New System.Globalization.CultureInfo("hu-HU") ' or "fa-IR" for Farsi(Iran) 
         InputLanguage.CurrentInputLanguage = InputLanguage.FromCulture(TypeOfLanguage)
     End Sub
 
@@ -190,7 +190,7 @@ Public Class ZebraPrint
     ''' <summary>
     ''' Load printer definitions
     ''' </summary>
-    ''' <param name="printers_filename">Printer definition filename</param>
+    ''' <param name="printers_filename">Printer definitions filename</param>
     Public Shared Sub LoadPrinters(Optional printers_filename As String = "Printers.xml")
         Dim m_xmlr As XmlTextReader
         'Create the XML Reader
@@ -230,7 +230,7 @@ Public Class ZebraPrint
     ''' <summary>
     ''' Load label templates
     ''' </summary>
-    ''' <param name="labels_filename">Label template filename</param>
+    ''' <param name="labels_filename">Label templates filename</param>
     Public Shared Sub LoadLabels(Optional labels_filename As String = "Labels.xml")
         Dim m_xmlr As XmlTextReader
         'Create the XML Reader
