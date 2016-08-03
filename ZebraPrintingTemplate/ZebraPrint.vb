@@ -148,7 +148,7 @@ Public Class ZebraPrint
     ''' Change system keyboard to English
     ''' </summary>
     Public Shared Sub ChangeToEnKey()
-        Dim TypeOfLanguage = New System.Globalization.CultureInfo("en-EN") ' or "fa-IR" for Farsi(Iran) 
+        Dim TypeOfLanguage = New Globalization.CultureInfo("en-EN") ' or "fa-IR" for Farsi(Iran) 
         InputLanguage.CurrentInputLanguage = InputLanguage.FromCulture(TypeOfLanguage)
     End Sub
 
@@ -157,7 +157,7 @@ Public Class ZebraPrint
     ''' Change system keyboard to Hungarian
     ''' </summary>
     Public Shared Sub ChangeToHuKey()
-        Dim TypeOfLanguage = New System.Globalization.CultureInfo("hu-HU") ' or "fa-IR" for Farsi(Iran) 
+        Dim TypeOfLanguage = New Globalization.CultureInfo("hu-HU") ' or "fa-IR" for Farsi(Iran) 
         InputLanguage.CurrentInputLanguage = InputLanguage.FromCulture(TypeOfLanguage)
     End Sub
 
