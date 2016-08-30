@@ -14,5 +14,8 @@
   </printer>
   <printer name="SósT hálózatról">
     <winname>\\SM-TSOS3.ad.sanatmetal.hu\TLP2824A</winname>
+  </printer>
+  <printer name="WIWE ZT410">
+    <winname>ZT410W</winname>
   </printer>  
 </printers> 

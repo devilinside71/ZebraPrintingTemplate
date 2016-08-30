@@ -209,11 +209,10 @@ Public Class ZebraPrint
             If Not m_xmlr.IsStartElement() Then
                 Exit While
             End If
-            'Get the Gender Attribute Value
+            'Get the Attribute Value
             PrinterNames.Add(m_xmlr.GetAttribute("name"))
-            'Read elements firstname and lastname
+            'Read elements 
             m_xmlr.Read()
-            'Get the firstName Element Value
             PrinterWinNames.Add(m_xmlr.ReadElementString("winname"))
         End While
         'close the reader
@@ -249,11 +248,10 @@ Public Class ZebraPrint
             If Not m_xmlr.IsStartElement() Then
                 Exit While
             End If
-            'Get the Gender Attribute Value
+            'Get the Attribute Value
             LabelNames.Add(m_xmlr.GetAttribute("name"))
-            'Read elements firstname and lastname
+            'Read elements 
             m_xmlr.Read()
-            'Get the firstName Element Value
             LabelCodes.Add(m_xmlr.ReadElementString("code"))
         End While
         'close the reader
